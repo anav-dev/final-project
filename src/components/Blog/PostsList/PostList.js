@@ -10,9 +10,16 @@ import {
 } from "firebase/firestore";
 import { database } from "../../../firebaseConfig";
 import PostListStyle from "./PostList.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-/* reference sources: https://softauthor.com/firebase-firestore-get-documents-data-in-collection/ 
-https://softauthor.com/firebase-firestore-update-document-data-updatedoc/*/
+/* reference sources: 
+https://softauthor.com/firebase-firestore-get-documents-data-in-collection/ 
+https://softauthor.com/firebase-firestore-update-document-data-updatedoc/
+https://www.npmjs.com/package/react-toastify
+https://www.geeksforgeeks.org/reactjs-toast-notification/
+*/
+toast.configure();
 
 function PostList({ isAuth }) {
   //console.log("Entering BlogPage");
@@ -27,13 +34,34 @@ function PostList({ isAuth }) {
     postText: "This text has been updated",
   };
 
-  updateDoc(docRef, data)
+  /*updateDoc(docRef, data)
     .then((docRef) => {
       console.log("Value of an Existing Document Field has been updated");
     })
     .catch((error) => {
       console.log(error);
     });
+  */
+
+  const notifyToast = () => {
+    // inbuilt-notification
+    toast.success("Post deleted successfully", {
+      position: toast.POSITION.TOP_CENTER,
+    });
+  };
+
+  // Function to delete a post
+  const handleDelete = async (id) => {
+    //console.log("Trying to delete post " + id);
+    //If user clicks OK after window.confirm
+    if (window.confirm("Are you sure you want to delete it?")) {
+      const postDoc = doc(database, "posts", id);
+      //console.log(postDoc);
+      await deleteDoc(postDoc);
+      notifyToast();
+      //console.log("Post deleted")
+    }
+  };
 
   useEffect(() => {
     //console.log("UseEffect");
@@ -73,22 +101,6 @@ function PostList({ isAuth }) {
     } catch (error) {
       console.log(error);
     }
-  };
-
-  //Function to refresh page
-  const refreshPage = () => {
-    window.location.reload();
-  };
-
-  // Function to delete a post
-  const handleDelete = async (id) => {
-    //console.log("Trying to delete post " + id);
-    window.confirm("Are you sure you want to delete it?");
-    const postDoc = doc(database, "posts", id);
-    //console.log(postDoc);
-    await deleteDoc(postDoc);
-    refreshPage();
-    //console.log("Post deleted")
   };
 
   // Function to edit a post

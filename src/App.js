@@ -4,6 +4,13 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
   To run this App you need to install:
   - npm install react-router-dom@6
   - npm install axios
+
+  * Firebase package *
+  - npm install firebase
+
+  * Toastify library *
+  - npm install --save react-toastify
+  
 */
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./views/Home";
