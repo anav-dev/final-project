@@ -19,7 +19,6 @@ https://softauthor.com/firebase-firestore-update-document-data-updatedoc/
 https://www.npmjs.com/package/react-toastify
 https://www.geeksforgeeks.org/reactjs-toast-notification/
 */
-toast.configure();
 
 function PostList({ isAuth }) {
   //console.log("Entering BlogPage");
