@@ -50,10 +50,7 @@ function BlogNavBar({ isAuth, setIsAuth }) {
                     {" "}
                     Log Out{" "}
                   </button>
-                  <Link
-                    to="/blog/createpost"
-                    className="blog-nav-link-createPost"
-                  >
+                  <Link to="/blog/createpost" className="blog-nav-links">
                     Create Post
                   </Link>
                 </>

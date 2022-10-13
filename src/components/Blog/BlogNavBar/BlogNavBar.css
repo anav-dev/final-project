@@ -57,6 +57,24 @@
   padding-bottom: 15px;
 }
 
+.logout-btn {
+  background-color: black;
+  color: white;
+  margin-top: 20px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  float: right;
+  margin-left: 33px;
+  margin-top: -5px;
+}
+
+.logout-btn:hover {
+  background-color: #272727;
+}
+
 /*
 @media (max-width: 950px) {
   .navbar-logo {
