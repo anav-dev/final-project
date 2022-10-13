@@ -1,0 +1,29 @@
+.background-btn {
+  padding: 5px;
+  text-align: center;
+  margin: auto;
+  display: flex;
+  font-size: 15px;
+  border: 0;
+  width: 20%;
+  margin-bottom: 15%;
+  background-color: #f2f9f1;
+  opacity: 0.6;
+}
+.background-btn:hover {
+  background-color: #272727;
+  color: white;
+}
+
+h3 {
+  padding: 15px;
+  text-align: center;
+  margin: auto;
+  font-size: 20px;
+  width: 40%;
+  font-family: "Cormorant Garamond", serif;
+}
+
+a {
+  text-decoration: none;
+}
