@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import CreatePost from "../components/Blog/PostsList/CreatePost/CreatePost";
 import Login from "../components/Blog/PostsList/Login/Login";
 import BlogNavBar from "../components/Blog/BlogNavBar/BlogNavBar";
-//import PostsList from "../components/Blog/PostsList/PostsList";
 import PostsList from "../components/Blog/PostsList/PostList";
 
 function Blog() {

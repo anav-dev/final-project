@@ -5,19 +5,35 @@ import {
   collection,
   deleteDoc,
   doc,
+  updateDoc,
   CollectionReference,
 } from "firebase/firestore";
 import { database } from "../../../firebaseConfig";
 import PostListStyle from "./PostList.css";
 
-/* source: https://softauthor.com/firebase-firestore-get-documents-data-in-collection/ */
+/* reference sources: https://softauthor.com/firebase-firestore-get-documents-data-in-collection/ 
+https://softauthor.com/firebase-firestore-update-document-data-updatedoc/*/
 
 function PostList({ isAuth }) {
   //console.log("Entering BlogPage");
   const [postList, setPostList] = useState([]);
   const postsCollectionRef = collection(database, "posts");
-  const docRef = doc(database, "posts", "NtRLpij2ucrbE20Q57dP");
-  //console.log(docRef);
+  const docRef = doc(database, "posts", "cYsl5zmtqxoDw6gyW31J");
+  const [isEdit, setIsEdit] = useState(false);
+
+  // Update one document using docRef
+  const data = {
+    title: "Title Update",
+    postText: "This text has been updated",
+  };
+
+  updateDoc(docRef, data)
+    .then((docRef) => {
+      console.log("Value of an Existing Document Field has been updated");
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 
   useEffect(() => {
     //console.log("UseEffect");
@@ -38,6 +54,7 @@ function PostList({ isAuth }) {
           id: doc.id,
         }))
       );
+      setIsEdit(false);
     } catch (error) {
       console.log(error);
     }
@@ -57,6 +74,7 @@ function PostList({ isAuth }) {
       console.log(error);
     }
   };
+
   //Function to refresh page
   const refreshPage = () => {
     window.location.reload();
@@ -64,17 +82,19 @@ function PostList({ isAuth }) {
 
   // Function to delete a post
   const handleDelete = async (id) => {
-    console.log("Trying to delete post " + id);
+    //console.log("Trying to delete post " + id);
+    window.confirm("Are you sure you want to delete it?");
     const postDoc = doc(database, "posts", id);
     //console.log(postDoc);
     await deleteDoc(postDoc);
     refreshPage();
-    console.log("Post deleted");
+    //console.log("Post deleted")
   };
 
   // Function to edit a post
   const handleEdit = async (id) => {
     console.log("Trying to edit post " + id);
+    setIsEdit(true);
   };
 
   // Function to update a post
@@ -82,83 +102,37 @@ function PostList({ isAuth }) {
     console.log("Trying to update post " + id);
   };
 
-  /*
-  
-  function handleDelete(e, id) {
-    var favBooks_arr = [...favBooks];
-    var index = favBooks.indexOf(
-      favBooks.find(function (favBook) {
-        return favBook.id === id;
-      })
-    );
-    favBooks_arr.splice(index, 1);
-    setFavBooks(favBooks_arr);
-  }
-
-  function handleEdit(e, id) {
-    e.preventDefault();
-    var favBooks_arr = [...favBooks];
-    var index = favBooks_arr.indexOf(
-      favBooks_arr.find(function (favBook) {
-        return favBook.id === id;
-      })
-    );
-    favBooks_arr[index].isEdit = true;
-    setUpdateTitle(favBooks_arr[index].title);
-    setUpdateAuthor(favBooks_arr[index].author);
-    setUpdatePage(favBooks_arr[index].page);
-    setFavBooks(favBooks_arr);
-  }
-
-  function handleUpdate(e, id) {
-    e.preventDefault();
-    var favBooks_arr = [...favBooks];
-    var index = favBooks_arr.indexOf(
-      favBooks_arr.find(function (favBook) {
-        return favBook.id === id;
-      })
-    );
-    favBooks_arr[index].isEdit = false;
-    setUpdateTitle("");
-    favBooks_arr[index].title = updateTitle;
-    setUpdateAuthor("");
-    favBooks_arr[index].author = updateAuthor;
-    setUpdatePage("");
-    favBooks_arr[index].page = updatePage;
-    setFavBooks(favBooks);
-  }
-
-  */
-
   return (
     <div className="blogPage">
-      {postList.map((post) => {
+      {postList.map((post, index) => {
         return (
-          <div className="post">
-            <div className="post-header">
-              <div className="post-title">
-                <h3>{post.title}</h3>
+          <li key={index} className="list">
+            <div className="post">
+              <div className="post-header">
+                <div className="post-title">
+                  <h3>{post.title}</h3>
+                </div>
               </div>
+              <div className="postText-container">{post.postText}</div>
+              <h4>@{post.author.name}</h4>
+              {isAuth ? (
+                <h4>
+                  <a>User logged</a>
+                  <button
+                    onClick={() => {
+                      handleDelete(post.id);
+                    }}
+                  >
+                    {" "}
+                    Delete
+                  </button>
+                  <button onClick={handleEdit}>Edit</button>
+                </h4>
+              ) : (
+                <h4> User not logged</h4>
+              )}
             </div>
-            <div className="postText-container">{post.postText}</div>
-            <h4>@{post.author.name}</h4>
-            {isAuth ? (
-              <h4>
-                <a>User logged</a>
-                <button
-                  onClick={() => {
-                    handleDelete(post.id);
-                  }}
-                >
-                  {" "}
-                  Delete
-                </button>
-                <button>Edit</button>
-              </h4>
-            ) : (
-              <h4> User not logged</h4>
-            )}
-          </div>
+          </li>
         );
       })}
     </div>

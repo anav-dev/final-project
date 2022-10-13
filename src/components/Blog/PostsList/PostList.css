@@ -49,3 +49,7 @@
   overflow: hidden;
   overflow-y: auto;
 }
+
+.list {
+  list-style: none;
+}
