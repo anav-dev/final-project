@@ -6,6 +6,7 @@ import CreatePost from "../components/Blog/PostsList/CreatePost/CreatePost";
 import Login from "../components/Blog/PostsList/Login/Login";
 import BlogNavBar from "../components/Blog/BlogNavBar/BlogNavBar";
 import PostsList from "../components/Blog/PostsList/PostList";
+import Navbar from "../components/Navbar/Navbar";
 
 function Blog() {
   //create variable to determine if user is auth or not
@@ -13,8 +14,8 @@ function Blog() {
   const [isAuth, setIsAuth] = useState(false);
   return (
     <div>
+      <Navbar />
       <BlogNavBar isAuth={isAuth} setIsAuth={setIsAuth} />
-
       <Routes>
         <Route path="" element={<PostsList isAuth={isAuth} />} />
         <Route path="login" element={<Login setIsAuth={setIsAuth} />} />
