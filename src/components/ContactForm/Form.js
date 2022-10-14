@@ -99,13 +99,6 @@ function Form() {
   return (
     <>
       <div>
-        <BackgroundSection
-          src={backgroundimage2}
-          background_message={"Get in touch"}
-          show_btn={false}
-          btn_link={""}
-          btn_text={""}
-        />
         <p className="form-p">
           I'm a paragraph. Click here to add your own text and edit me. I’m a
           great place for you to tell a story and let your users know a little

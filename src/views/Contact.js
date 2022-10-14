@@ -3,11 +3,26 @@ import Form from "../components/ContactForm/Form";
 import "../components/ContactForm/Form.css";
 import Footer from "../components/Footer/Footer";
 import Navbar from "../components/Navbar/Navbar";
+import imageBackg from "../img/background.jpg";
+import Background from "../components/Background/BackgroundSection";
 
 function Contact() {
   return (
     <>
-      <Navbar />
+      <div>
+        <Navbar />
+        <br />
+        <br />
+      </div>
+      <div>
+        <Background
+          src={imageBackg}
+          background_message={"Contact"}
+          show_btn={false}
+          btn_link={""}
+          btn_text={""}
+        />
+      </div>
       <div>
         <Form />
       </div>

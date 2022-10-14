@@ -23,13 +23,6 @@ function BlogNavBar({ isAuth, setIsAuth }) {
   };
   return (
     <>
-      <BackgroundSection
-        src={backgroundimage3}
-        background_message={""}
-        show_btn={false}
-        btn_link={""}
-        btn_text={""}
-      />
       <nav className="blog-navbar">
         <div className="blog-navbar-container">
           <ul className="blog-nav-menu">

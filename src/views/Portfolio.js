@@ -1,23 +1,26 @@
 import React from "react";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import Navbar from "../components/Navbar/Navbar";
+import Background from "../components/Background/BackgroundSection";
+import imagePortfolio from "../img/background.jpg";
 
-//toast.configure();
 function Portfolio() {
-  const notify = () => {
-    // inbuilt-notification
-    toast.success("successful", { position: toast.POSITION.TOP_CENTER });
-  };
   return (
-    <div>
-      <Navbar />
-      <p>This is the Portfolio</p>
-
-      <div className="GeeksforGeeks">
-        <button onClick={notify}>Click Me!</button>
+    <>
+      <div>
+        <Navbar />
+        <br />
+        <br />
       </div>
-    </div>
+      <div>
+        <Background
+          src={imagePortfolio}
+          background_message={"Portfolio"}
+          show_btn={true}
+          btn_link={"/blog"}
+          btn_text={"Go to blog"}
+        />
+      </div>
+    </>
   );
 }
 

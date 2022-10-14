@@ -15,19 +15,18 @@
   width: 5px;
   height: 5px;
   border-radius: 50px;
-  display: block;
-  text-align: center;
   padding: 15px;
   text-decoration: none;
   cursor: pointer;
-  margin: 0.5px;
   margin-bottom: 15px;
   margin-right: 10px;
 }
+
 .socialmedia-item a {
   text-decoration: none;
   color: inherit;
 }
+
 .socialmedia-item:hover {
   opacity: 0.8;
 }

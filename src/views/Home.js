@@ -8,7 +8,7 @@ import FooterBackg from "../components/HomeBackg/FooterBackg/FooterBackg";
 function Home() {
   return (
     <>
-      <div>
+      <div id="homepage">
         <div>
           <HomeBackg />
         </div>
