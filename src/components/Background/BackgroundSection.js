@@ -7,7 +7,7 @@ function BackgroundSection(props) {
   return (
     <>
       <div className="img-backg-container">
-        <img className="web-backg-img" src={props.src}></img>
+        <img className="web-backg-img" src={props.src} alt=""></img>
       </div>
       <div>
         {props.show_btn && (

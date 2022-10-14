@@ -8,7 +8,7 @@ import BlogNavBar from "../components/Blog/BlogNavBar/BlogNavBar";
 import PostsList from "../components/Blog/PostsList/PostList";
 import Navbar from "../components/Navbar/Navbar";
 import Background from "../components/Background/BackgroundSection";
-import imageBackg from "../img/background.jpg";
+import imageBackg from "../img/background2.jpg";
 
 function Blog() {
   //create variable to determine if user is auth or not

@@ -1,11 +1,15 @@
 .img-backg-container {
   text-align: center;
-  background-color: pink;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
 .web-backg-img {
-  max-height: 250px;
-  max-width: 80%;
+  margin-top: 10px;
+  width: 80%;
+  height: 250px;
 }
 
 .title-backg-container > h1 {
@@ -22,7 +26,6 @@
   margin-bottom: 5px;
 }
 .text-backg-container {
-  background-color: yellow;
   align-items: center;
   text-align: justify;
   margin-top: -3%;

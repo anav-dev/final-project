@@ -12,7 +12,8 @@
   color: inherit;
 }
 .logo-container h3 {
-  font-size: 15px;
+  font-size: 12px;
+  margin-bottom: 2%;
 }
 .navbar {
   height: 50px;
