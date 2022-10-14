@@ -93,16 +93,3 @@ input::placeholder {
 .msg-form-sent {
   transition-duration: 10s, 30s, 230ms;
 }
-
-.form-p {
-  width: 360px;
-  background-color: rgba(255, 255, 255, 0.4);
-  margin: auto;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-  padding: 10px;
-  margin-top: 5px;
-  width: 35%;
-  margin-bottom: 90px;
-  align-items: center;
-  text-align: justify;
-}

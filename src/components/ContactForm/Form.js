@@ -98,14 +98,6 @@ function Form() {
 
   return (
     <>
-      <div>
-        <p className="form-p">
-          I'm a paragraph. Click here to add your own text and edit me. I’m a
-          great place for you to tell a story and let your users know a little
-          more about you. <br /> Tel: 123-456-7890 | Email: info@mysite.com
-        </p>
-      </div>
-
       <div className="form-container">
         <form className="register-form">
           <h2 className="form-title">Contact us</h2>
@@ -158,7 +150,7 @@ function Form() {
               type="submit"
               onClick={handleClick}
             >
-              Sent
+              Submit
             </button>
           )}
           {/*show h2 message when button is clicked*/}

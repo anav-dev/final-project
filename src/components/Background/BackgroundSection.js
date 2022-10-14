@@ -17,6 +17,9 @@ function BackgroundSection(props) {
       <div className="title-backg-container">
         <h1>{props.background_message}</h1>
       </div>
+      <div className="text-backg-container">
+        <p>{props.text}</p>
+      </div>
     </>
   );
 }

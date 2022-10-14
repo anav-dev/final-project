@@ -21,6 +21,9 @@ function Contact() {
           show_btn={false}
           btn_link={""}
           btn_text={""}
+          text={
+            "Have a question?Thinking about booking a private session? Please do not hesitate to reach out for any reason -- email, call, text, or just fill out the form below and hit submit.email: email@email.com phone: (000) 123-4567"
+          }
         />
       </div>
       <div>
