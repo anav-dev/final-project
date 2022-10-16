@@ -4,21 +4,11 @@
   color: #3b625f;
 }
 
-.form-title:after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
-  height: 4px;
-  width: 60%;
-  border-radius: 2px;
-}
 .form-container {
   width: 360px;
   background-color: white;
   margin: auto;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+
   padding: 10px;
   margin-top: 5px;
   width: 35%;

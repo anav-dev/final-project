@@ -100,7 +100,7 @@ function Form() {
     <>
       <div className="form-container">
         <form className="register-form">
-          <h2 className="form-title">Contact us</h2>
+          <h2 className="form-title">Get in touch</h2>
           <input
             id="name"
             className="form-field"

@@ -1,20 +1,18 @@
 import React from "react";
 import "./Footer.css";
+import { FaGithub } from "react-icons/fa";
+
+/* reference source: https://react-icons.github.io/react-icons/*/
 
 function Footer() {
   return (
     <footer className="footer">
       <div className="footer-container">
-        <div className="socialmedia-logo">
-          <p id="social-media">
-            Visit us on{" "}
-            <a href="" target="_blank">
-              <i class="fa-brands fa-facebook-square"></i>
-            </a>
-            <a href="" target="_blank">
-              <i class="fa-brands fa-instagram-square"></i>
-            </a>
-          </p>
+        <div className="github-logo">
+          <a href="https://github.com/anaes0/final-project" target="_blank">
+            Website Code:
+            <FaGithub />
+          </a>
         </div>
       </div>
     </footer>
