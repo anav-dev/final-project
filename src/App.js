@@ -11,8 +11,16 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
   * Toastify library *
   - npm install --save react-toastify
 
+  * Gallery arrow icons *
+  - npm add @material-ui/core @material-ui/icons
+
+  * React icons *
+  - npm install react-icons --save
+
   * For running App tests *
   - npm i --save-dev enzyme enzyme-adapter-react-16
+
+
   
 */
 import Navbar from "./components/Navbar/Navbar";
