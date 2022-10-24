@@ -22,6 +22,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
+  cursor: pointer;
 }
 
 .carousel-inner .left {
