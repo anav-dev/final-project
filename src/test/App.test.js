@@ -43,3 +43,16 @@ test("renders contact page", () => {
     </Router>
   );
 });
+
+/* NEXT TEST TO RUN -- EDITARLO -- Test 5 -> Component -> Contact form -> FormFormik.js 
+- Test error message is not visible 
+
+test("render FormFormik and error message is not be visible", () => {
+  render(<FormFormik />);
+  expect(screen.getByRole("button", { name: "Send" })).toBeInTheDocument();
+
+  const subject = screen.getByText("subject");
+  expect(subject).toBeInTheDocument();
+});
+
+*/
