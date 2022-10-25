@@ -18,7 +18,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
   - npm install react-icons --save
 
   * For running App tests *
-  - npm i --save-dev enzyme enzyme-adapter-react-16
+  - npm install @testing-library/react
 
 
   

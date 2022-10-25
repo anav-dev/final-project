@@ -23,10 +23,10 @@ function BlogNavBar({ isAuth, setIsAuth }) {
   };
   return (
     <>
-      <nav className="blog-navbar">
+      <nav className="blog-navbar" role="navigation">
         <div className="blog-navbar-container">
           <ul className="blog-nav-menu">
-            <li className="blog-nav-item">
+            <li className="blog-nav-item" id="blog-link">
               <Link to="/blog" className="blog-nav-links">
                 Blog
               </Link>
