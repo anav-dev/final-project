@@ -5,6 +5,7 @@ import Footer from "../components/Footer/Footer";
 import Navbar from "../components/Navbar/Navbar";
 import imageBackg from "../img/background0.jpg";
 import Background from "../components/Background/BackgroundSection";
+import MapApi from "../components/ContactForm/MapAPI/MapApi";
 
 function Contact() {
   return (
@@ -28,6 +29,9 @@ function Contact() {
       </div>
       <div>
         <Form />
+      </div>
+      <div>
+        <MapApi />
       </div>
       <div>
         <Footer />

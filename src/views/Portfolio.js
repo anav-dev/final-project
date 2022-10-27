@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar/Navbar";
 import Background from "../components/Background/BackgroundSection";
 import imagePortfolio from "../img/background.jpg";
 import ImageCarousel from "../components/ImageCarousel/ImageCarousel";
+import Footer from "../components/Footer/Footer";
 
 function Portfolio() {
   return (
@@ -26,6 +27,9 @@ function Portfolio() {
       </div>
       <div>
         <ImageCarousel />
+      </div>
+      <div>
+        <Footer />
       </div>
     </>
   );

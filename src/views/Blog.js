@@ -9,6 +9,7 @@ import PostsList from "../components/Blog/PostsList/PostList";
 import Navbar from "../components/Navbar/Navbar";
 import Background from "../components/Background/BackgroundSection";
 import imageBackg from "../img/background2.jpg";
+import Footer from "../components/Footer/Footer";
 
 function Blog() {
   //create variable to determine if user is auth or not
@@ -41,6 +42,9 @@ function Blog() {
           <Route path="login" element={<Login setIsAuth={setIsAuth} />} />
           <Route path="createpost" element={<CreatePost isAuth={isAuth} />} />
         </Routes>
+      </div>
+      <div>
+        <Footer />
       </div>
     </>
   );
