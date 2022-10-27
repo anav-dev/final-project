@@ -1,0 +1,15 @@
+.map-container {
+  background-color: lightgreen;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.map-title {
+  background-color: #ffff;
+  width: 500px;
+  height: 100px;
+  text-align: center;
+  font-size: 30px;
+}
