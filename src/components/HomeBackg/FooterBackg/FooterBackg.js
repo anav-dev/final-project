@@ -10,12 +10,20 @@ function FooterBackg() {
       <div>
         <ul className="socialmedia-list">
           <li className="socialmedia-item">
-            <a href="https://www.instagram.com/transient.ie/" target="_blank">
+            <a
+              className="socialmedia-insta"
+              href="https://www.instagram.com/transient.ie/"
+              target="_blank"
+            >
               <FaInstagram />
             </a>
           </li>
           <li className="socialmedia-item">
-            <a href="https://ietransient.tumblr.com/" target="_blank">
+            <a
+              className="socialmedia-tumblr"
+              href="https://ietransient.tumblr.com/"
+              target="_blank"
+            >
               <FaTumblr />
             </a>
           </li>

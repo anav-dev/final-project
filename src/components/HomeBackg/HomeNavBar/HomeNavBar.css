@@ -1,39 +1,23 @@
-.home-navbar {
-  height: 1px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.2rem;
-  position: sticky;
-  z-index: 999;
-  margin-top: -60px;
-}
-
 .home-navbar-container {
+  margin-top: -110px;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 80px;
-  max-width: 1500px;
+  position: sticky;
 }
-
 .home-nav-menu {
-  display: grid;
-  grid-template-columns: repeat(4, auto);
-  grid-gap: 10px;
   list-style: none;
-  text-align: center;
-  width: 60vw;
-  justify-content: end;
-  margin-right: 40rem;
+  display: flex;
+  flex-direction: row;
+
+  width: 35vw;
 }
 
 .home-nav-item {
   height: 40px;
   font-size: 25px;
   margin-top: 68px;
-  letter-spacing: inherit;
-  text-transform: inherit;
   font-family: Goudy Old Style, serif;
   font-style: normal;
   font-weight: 400;
@@ -41,16 +25,13 @@
 
 .home-nav-links {
   color: white;
-  display: flex;
   align-items: center;
-  margin-left: 60%;
+  margin-left: 17%;
   text-decoration: none;
-  padding: 0.5rem 1rem;
-  height: 5%;
+  padding: 2rem;
 }
 
 .home-nav-links:hover {
   color: black;
   opacity: 0.4;
-  font-weight: 600;
 }

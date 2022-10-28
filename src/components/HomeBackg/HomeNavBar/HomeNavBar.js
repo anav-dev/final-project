@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function HomeNavBar() {
   return (
-    <nav className="home-navbar">
+    <nav>
       <div className="home-navbar-container">
         <ul className="home-nav-menu">
           <li className="home-nav-item">
