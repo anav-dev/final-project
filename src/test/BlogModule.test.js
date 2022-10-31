@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 
 import BlogNavBar from "../components/Blog/BlogNavBar/BlogNavBar";
@@ -7,7 +7,7 @@ import Blog from "../views/Blog";
 import Login from "../components/Blog/PostsList/Login/Login";
 import CreatePost from "../components/Blog/PostsList/CreatePost/CreatePost";
 
-import { waitForElementToBeRemoved, prettyDOM } from "@testing-library/react";
+import { prettyDOM } from "@testing-library/react";
 
 /* sources: https://testing-library.com/docs/queries/about/
             https://www.w3.org/TR/wai-aria/#role_definitions
@@ -47,11 +47,7 @@ test("renders blog navbar elements:createpost (user not logged)", () => {
 */
 
 /* 2. Logging process 
-STEPS:
-a) Check page loads
-b) Check elements displayed (user not logged)
-c) Loggin process
-
+STEPS: a) Check page loads b) Check elements displayed (user not logged) c) Loggin process
 */
 
 // * Test 3- Test elements displayed and path when Login button is clicked
@@ -61,28 +57,29 @@ test("After log in btn clicked, check elements displayed and path", async () => 
       <Blog />
     </Router>
   );
+  // 3.1 Check elements in page loaded (user not logged)
   //console.log("Loging page (not logged)\n:" + prettyDOM(document));
-  //TODO: Check that the elements are correct as not logged
 
   // Login process
   const loginBtn = screen.getByRole("link", { name: "Log in" });
   fireEvent.click(loginBtn);
+  //3.2 After click login btn, user is redirected to /blog/login path
   expect(window.location.pathname).toBe("/blog/login");
   console.log("Path document after click: " + window.location);
-  // The path is ok, render loging page before checking
+  //3.3 The path is ok, render login page before checking elements on it
   render(
     <Router>
       <Login />
     </Router>
   );
+
+  //3.4. check elements in login page
   const gogSignText = screen.getByRole("button", {
     name: "Sign in with Google",
   });
 
   expect(gogSignText).toBeInTheDocument();
   console.log("Loging page (after click)\n:" + prettyDOM(document));
-
-  //expect(screen.getByText(/Create post/i)).toBeInTheDocument();
 });
 
 // * Test 4- Test elements displayed and path when Sign in with Google Button is clicked
