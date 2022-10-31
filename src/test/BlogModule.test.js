@@ -46,8 +46,8 @@ test("renders blog navbar elements:createpost (user not logged)", () => {
 });
 */
 
-/* 2. Logging process 
-STEPS: a) Check page loads b) Check elements displayed (user not logged) c) Loggin process
+/* 2. Logging and Sign in process 
+STEPS: a) Check page loads b) Check path after btn clicked c) Check elements displayed
 */
 
 // * Test 3- Test elements displayed and path when Login button is clicked
