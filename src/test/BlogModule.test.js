@@ -5,6 +5,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import BlogNavBar from "../components/Blog/BlogNavBar/BlogNavBar";
 import Blog from "../views/Blog";
 import Login from "../components/Blog/PostsList/Login/Login";
+import CreatePost from "../components/Blog/PostsList/CreatePost/CreatePost";
 
 import { waitForElementToBeRemoved, prettyDOM } from "@testing-library/react";
 
@@ -16,8 +17,8 @@ import { waitForElementToBeRemoved, prettyDOM } from "@testing-library/react";
 // * BLOG MODULE TESTING *
 // 1. Main parts on website (not logged)
 
-/* Test 1 - Test render blog navbar elements on screen (user not logged)*/
-test("renders blog navbar elements (user not logged)", () => {
+/* Test 1 - Test check blog navbar elements on screen (user not logged)*/
+test("check blog-navbar elements displayed (user not logged)", () => {
   render(
     <Router>
       <BlogNavBar />
@@ -31,7 +32,7 @@ test("renders blog navbar elements (user not logged)", () => {
   expect(blogLink).toBeInTheDocument(); //expect(screen.getByText(/log in/i)).toBeInTheDocument();
 });
 
-/* Test 2 - Test render blog navbar element: "Create Post" is NOT on screen (user not logged) This test should fail */
+/* Test 2 - Test check blog navbar element: "Create Post" is NOT on screen (user not logged) This test should fail */
 
 /*
 test("renders blog navbar elements:createpost (user not logged)", () => {
@@ -50,11 +51,11 @@ STEPS:
 a) Check page loads
 b) Check elements displayed (user not logged)
 c) Loggin process
-d) Check elements displayed (user logged)
+
 */
 
-// * Test 3- Test elements displayed when Sign in with Google Button is clicked
-test("After log in btn clicked, some elements are displayed and routing is correct", async () => {
+// * Test 3- Test elements displayed and path when Login button is clicked
+test("After log in btn clicked, check elements displayed and path", async () => {
   render(
     <Router>
       <Blog />
@@ -81,12 +82,50 @@ test("After log in btn clicked, some elements are displayed and routing is corre
   expect(gogSignText).toBeInTheDocument();
   console.log("Loging page (after click)\n:" + prettyDOM(document));
 
-  return;
-
   //expect(screen.getByText(/Create post/i)).toBeInTheDocument();
 });
 
-// 3. Main parts on website (logged)
-// 4. Create post page (website content)
+// * Test 4- Test elements displayed and path when Sign in with Google Button is clicked
+test("After google btn clicked, check elements displayed and path", async () => {
+  render(
+    <Router>
+      <Login />
+    </Router>
+  );
 
-// 5. Create post, check on the database, check it on the website and delete in database, and check delete.
+  //console.log("Loging page (not logged)\n:" + prettyDOM(document));
+
+  // Google sign up process
+  const googleBtn = screen.getByRole("button", {
+    name: "Sign in with Google",
+  });
+
+  // fireEvent.click(googleBtn);
+  /* ERROR:
+FirebaseError: Firebase: Error (auth/operation-not-supported-in-this-environment).
+Test suite failed to run - Jest worker encountered 4 child process exceptions, exceeding retry limit */
+});
+
+// 3. Create post page (website content)
+/* Test 5 - Test check create post elements on screen (user logged)*/
+test("check create post elements displayed (user logged)", () => {
+  render(
+    <Router>
+      <CreatePost />
+    </Router>
+  );
+
+  console.log("Create post page (user logged)\n:" + prettyDOM(document));
+
+  const headingCreatePost = screen.getByRole("heading", {
+    name: "Create a Post",
+  });
+  const submitBtn = screen.getByRole("button", { name: "Submit Post" });
+  const postTitle = screen.getByPlaceholderText("Post Title...");
+  const posttext = screen.getByPlaceholderText("Post text ...");
+
+  expect(submitBtn).toBeInTheDocument();
+  expect(headingCreatePost).toBeInTheDocument();
+  expect(postTitle).toBeInTheDocument();
+  expect(posttext).toBeInTheDocument();
+});
