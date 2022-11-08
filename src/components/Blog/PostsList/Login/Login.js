@@ -9,6 +9,7 @@ import { signInWithPopup } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
 //source: https://firebase.google.com/docs/auth/web/google-signin
+//https://firebase.google.com/docs/auth/web/google-signin
 
 function Login({ setIsAuth }) {
   let navigate = useNavigate();

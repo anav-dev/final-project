@@ -9,6 +9,8 @@ import { auth } from "../../../firebaseConfig";
 -- useNavigate(path/route where you want to go)*/
 import { useNavigate } from "react-router-dom";
 
+//source: https://firebase.google.com/docs/auth/web/google-signin
+
 function BlogNavBar({ isAuth, setIsAuth }) {
   //Log user out arrow function that will use sign Out function from firebase
 
