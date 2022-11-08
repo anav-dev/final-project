@@ -3,7 +3,10 @@ import CreatePostStyle from "./CreatePost.css";
 import { addDoc, collection } from "firebase/firestore";
 import { database, auth } from "../../../../firebaseConfig";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
+toast.configure();
 function CreatePost({ isAuth }) {
   const [title, setTitle] = useState("");
   const [postText, setPostText] = useState("");
@@ -11,9 +14,15 @@ function CreatePost({ isAuth }) {
   const [errorTitle, setErrorTitle] = useState("");
   const [errorText, setErrorText] = useState("");
 
-  /* function to grab the value of the user input in the Title 
-  and Text section. Whenever is a change, the state will be updated */
+  const notifyToast = () => {
+    // inbuilt-notification
+    toast.success("Post created successfully", {
+      position: toast.POSITION.TOP_CENTER,
+    });
+  };
 
+  /* functions to grab the value of the user input in the Title 
+  and Text section. Whenever is a change, the state will be updated */
   function handleChangeTitle(event) {
     event.preventDefault();
     setTitle(event.target.value);
@@ -47,6 +56,7 @@ function CreatePost({ isAuth }) {
           id: auth.currentUser.uid,
         },
       });
+      notifyToast();
       navigate("/blog");
     } else {
       console.log("Input value: empty");
