@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, wait } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 
 import BlogNavBar from "../components/Blog/BlogNavBar/BlogNavBar";
@@ -97,10 +97,16 @@ test("After google btn clicked, check elements displayed and path", async () => 
     name: "Sign in with Google",
   });
 
-  // fireEvent.click(googleBtn);
+  fireEvent.click(googleBtn);
+  await wait();
   /* ERROR:
 FirebaseError: Firebase: Error (auth/operation-not-supported-in-this-environment).
 Test suite failed to run - Jest worker encountered 4 child process exceptions, exceeding retry limit */
+  /*Troubleshooting:
+  https://firebase.google.com/docs/reference/js/v8/firebase.auth.Auth
+  https://github.com/firebase/firebase-js-sdk/issues/558
+  https://github.com/facebook/jest/issues/8769#issuecomment-919811307
+*/
 });
 
 // 3. Create post page (website content)

@@ -8,6 +8,8 @@ import { signInWithPopup } from "firebase/auth";
 -- useNavigate(path/route where you want to go)*/
 import { useNavigate } from "react-router-dom";
 
+//source: https://firebase.google.com/docs/auth/web/google-signin
+
 function Login({ setIsAuth }) {
   let navigate = useNavigate();
 
