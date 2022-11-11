@@ -9,26 +9,32 @@ function ImageCarousel() {
   /* Use useState to keep track which image is by keeping track of the image index --> <img src={images[0].img} />
    Create a state that will represent which image/index we are 
    By changing the value in the state, the image displayed will be changed*/
+
   let [currentImageIndex, setCurrentImageIndex] = useState(0); //first element is in the 0 index
 
-  //to handle full image on click
-  const [isOpen, setIsOpen] = useState(false);
+  /* troubleshooting unexpected carousel behaviour:
+ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Decrement
+ https://www.w3schools.com/js/js_precedence.asp
+ 
+ Solution: --currentImageIndex instead of currentImageIndex--
+  */
 
   const handleClickBack = () => {
     console.log("handle Click back");
-    currentImageIndex > 0 && setCurrentImageIndex(currentImageIndex--); //decrease index by 1
+    //setCurrentImageIndex(1);
+    //console.log("index is " + currentImageIndex);
+
+    currentImageIndex > 0 && setCurrentImageIndex(--currentImageIndex); //decrease index by 1
   };
 
   const handleClickForward = () => {
     console.log("handle Click forward");
+    //console.log(images.length);
+
     currentImageIndex < images.length - 1 &&
       setCurrentImageIndex(currentImageIndex + 1); //increase index by 1
-  };
 
-  const handleFullImage = () => {
-    setIsOpen(true);
-    console.log(isOpen);
-    console.log("handle full img");
+    console.log("index is " + currentImageIndex);
   };
 
   return (
@@ -38,7 +44,6 @@ function ImageCarousel() {
           <div
             className="carousel-inner"
             style={{ backgroundImage: `url(${images[currentImageIndex].img})` }}
-            onClick={handleFullImage}
           >
             <div className="left" onClick={handleClickBack}>
               <ArrowBackIosIcon style={{ fontSize: 30 }} />
@@ -56,8 +61,6 @@ function ImageCarousel() {
           </div>
         </div>
       </div>
-
-      {/* popup modal */}
     </>
   );
 }
