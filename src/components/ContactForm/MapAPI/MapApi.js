@@ -12,6 +12,7 @@ import {
 
 /* sources: https://www.npmjs.com/package/@react-google-maps/api
             https://react-google-maps-api-docs.netlify.app/
+            https://react-google-maps-api-docs.netlify.app/#:~:text=LoadScript%20and%20GoogleMap,which%20all%20other%20components%20render
             https://developers.google.com/maps/documentation/javascript/infowindows
             https://react-google-maps-api-docs.netlify.app/#!/InfoWindow
 
@@ -21,6 +22,7 @@ utm_source=maps_js&utm_medium=degraded&utm_campaign=keyless#api-key-and-billing-
 
 troubleshooting: Google message "This page can't load Google maps correctly" +
                  Uncaught ReferenceError: google is not defined
+https://www.tutorialrepublic.com/faq/how-to-fix-dollar-is-not-defined-error-in-jquery.php#:~:text=The%20most%20common%20reason%20behind,library%20file%20has%20finished%20loading.              
 https://developers.google.com/maps/documentation/javascript/error-messages?
 https://react-google-maps-api-docs.netlify.app/
 */

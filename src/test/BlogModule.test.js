@@ -18,6 +18,7 @@ import { prettyDOM } from "@testing-library/react";
 // 1. Main parts on website (not logged)
 
 /* Test 1 - Test check blog navbar elements on screen (user not logged)*/
+/*
 test("check blog-navbar elements displayed (user not logged)", () => {
   render(
     <Router>
@@ -31,7 +32,7 @@ test("check blog-navbar elements displayed (user not logged)", () => {
   expect(loginLink).toBeInTheDocument(); //expect(screen.getByText(/blog/i)).toBeInTheDocument();
   expect(blogLink).toBeInTheDocument(); //expect(screen.getByText(/log in/i)).toBeInTheDocument();
 });
-
+*/
 /* Test 2 - Test check blog navbar element: "Create Post" is NOT on screen (user not logged) This test should fail */
 
 /*
@@ -51,6 +52,7 @@ STEPS: a) Check page loads b) Check path after btn clicked c) Check elements dis
 */
 
 // * Test 3- Test elements displayed and path when Login button is clicked
+/*
 test("After log in btn clicked, check elements displayed and path", async () => {
   render(
     <Router>
@@ -79,8 +81,9 @@ test("After log in btn clicked, check elements displayed and path", async () => 
   });
 
   expect(gogSignText).toBeInTheDocument();
-  console.log("Loging page (after click)\n:" + prettyDOM(document));
+ // console.log("Loging page (after click)\n:" + prettyDOM(document));
 });
+*/
 
 // * Test 4- Test elements displayed and path when Sign in with Google Button is clicked
 test("After google btn clicked, check elements displayed and path", async () => {
@@ -98,7 +101,7 @@ test("After google btn clicked, check elements displayed and path", async () => 
   });
 
   fireEvent.click(googleBtn);
-  await wait();
+
   /* ERROR:
 FirebaseError: Firebase: Error (auth/operation-not-supported-in-this-environment).
 Test suite failed to run - Jest worker encountered 4 child process exceptions, exceeding retry limit */
