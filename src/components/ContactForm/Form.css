@@ -8,7 +8,6 @@
   width: 360px;
   background-color: white;
   margin: auto;
-
   padding: 10px;
   margin-top: 5px;
   width: 35%;
@@ -22,13 +21,22 @@
   padding: 10px;
 }
 
-.form-field {
+.input-field {
   margin: 10px 0 10px 0;
   padding: 15px;
+  width: 93%;
   font-size: 16px;
   border: 0;
   font-family: Goudy Old Style, serif;
   background-color: rgba(230, 230, 230, 0.6);
+}
+
+.form-label {
+  display: block;
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: #1f1f1f;
 }
 
 .button-form {
