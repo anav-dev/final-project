@@ -25,9 +25,7 @@ function Form() {
 
   return (
     <Formik
-      /* initialValues property of Formik that 
-        is an object that contains initial and
-        default values of the inputs in the form */
+      /* initialValues property of Formik that is an object that contains initial/default input values */
       initialValues={{
         name: "",
         email: "",
@@ -73,7 +71,7 @@ function Form() {
         //to clean the form
         resetForm();
         //console.log("value entered for name: " + userValues.name);
-        console.log("Form sent");
+        //console.log("Form sent");
         setBtnVisibility(false);
         setFormSent(true);
         setTimeout(() => setFormSent(false), 5000);
@@ -81,7 +79,14 @@ function Form() {
     >
       {/* importing Formik functions: { values, handleSubmit...etc }; 
       properties from 'props' object*/}
-      {({ values, errors, handleSubmit, handleChange, handleBlur }) => (
+      {({
+        values,
+        errors,
+        touched,
+        handleSubmit,
+        handleChange,
+        handleBlur,
+      }) => (
         // defining a form within <Formik />
         <form className="form-container" onSubmit={handleSubmit}>
           {/* handleSubmit is a Formik function in charge of sending the form */}
@@ -101,7 +106,9 @@ function Form() {
               //onBlur = function to validate fields
             />
             {/*if errors object have the property name, means there is an error*/}
-            {errors.name && <div className="form-error">{errors.name}</div>}
+            {touched.name && errors.name && (
+              <div className="form-error">{errors.name}</div>
+            )}
           </div>
           <label className="form-label">Email: </label>
           <input
@@ -114,7 +121,9 @@ function Form() {
             onChange={handleChange}
             onBlur={handleBlur}
           />
-          {errors.email && <div className="form-error">{errors.email}</div>}
+          {touched.email && errors.email && (
+            <div className="form-error">{errors.email}</div>
+          )}
           <label className="form-label">Subject: </label>
           <input
             type="text"
@@ -126,7 +135,9 @@ function Form() {
             onChange={handleChange}
             onBlur={handleBlur}
           />
-          {errors.subject && <div className="form-error">{errors.subject}</div>}
+          {touched.subject && errors.subject && (
+            <div className="form-error">{errors.subject}</div>
+          )}
           <label className="form-label">Message: </label>
           <textarea
             type="text"
@@ -138,7 +149,9 @@ function Form() {
             onChange={handleChange}
             onBlur={handleBlur}
           />
-          {errors.message && <div className="form-error">{errors.message}</div>}
+          {touched.message && errors.message && (
+            <div className="form-error">{errors.message}</div>
+          )}
 
           {btnVisibility && (
             <button id="button-form" className="button-form" type="submit">
