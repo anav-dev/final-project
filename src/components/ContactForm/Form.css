@@ -74,20 +74,3 @@ input::placeholder {
   height: 40px;
   padding: 10px;
 }
-
-#message li input[type="text"],
-#message li textarea {
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border: none;
-}
-
-#message li textarea {
-  height: 150px;
-  resize: none;
-}
-
-.msg-form-sent {
-  transition-duration: 10s, 30s, 230ms;
-}
