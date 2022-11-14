@@ -74,3 +74,16 @@ input::placeholder {
   height: 40px;
   padding: 10px;
 }
+
+.form-error {
+  color: red;
+  padding: 5px;
+  font-size: 18px;
+}
+
+.form-sent-msg {
+  color: green;
+  padding: 5px;
+  font-size: 25px;
+  text-align: center;
+}
