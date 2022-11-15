@@ -36,9 +36,10 @@ test("check contact form elements displayed (form not sent)", () => {
 });
 
 /* Test 2 - Test elements displayed when Send button is clicked, without filling input fields (form not sent)  
-Expected behaviour: Error messages should be displayed and visible to users */
+Expected behaviour: Error messages should be displayed and visible to users && Success msg should not be displayed */
+
 test("After send btn is clicked, check elements displayed", async () => {
-  // 2.1 Test first render component
+  // 2.1 First render component
   render(
     <Router>
       <ContactForm />
@@ -51,14 +52,16 @@ test("After send btn is clicked, check elements displayed", async () => {
     fireEvent.click(sendBtn);
   });
 
-  console.log("Contact form (after click)\n:" + prettyDOM(document));
+  //console.log("Contact form (after click)\n:" + prettyDOM(document));
 
   /* 2.3 After click send btn, check elements displayed 
-  Whether an element (error msg) is present in the document or not.*/
+  Whether elements (error msg and success msg) are present in the document or not.*/
   const errorMsgName = screen.getByTestId("error-msg-name");
   expect(errorMsgName).toBeInTheDocument();
-
   expect(errorMsgName).toBeVisible(); // check is currently visible to the user
+
+  const successMsg = screen.queryByText("Form sent successfully!");
+  expect(successMsg).not.toBeInTheDocument();
 
   // 2.4 Check text in the error message
   const errorMsgText = screen.getByTestId("error-msg-name").innerHTML;
