@@ -107,7 +107,9 @@ function Form() {
             />
             {/*if errors object have the property name, means there is an error*/}
             {touched.name && errors.name && (
-              <div className="form-error">{errors.name}</div>
+              <div className="form-error" data-testid="error-msg-name">
+                {errors.name}
+              </div>
             )}
           </div>
           <label className="form-label">Email: </label>
@@ -122,7 +124,9 @@ function Form() {
             onBlur={handleBlur}
           />
           {touched.email && errors.email && (
-            <div className="form-error">{errors.email}</div>
+            <div className="form-error" data-testid="error-msg">
+              {errors.email}
+            </div>
           )}
           <label className="form-label">Subject: </label>
           <input
@@ -136,7 +140,9 @@ function Form() {
             onBlur={handleBlur}
           />
           {touched.subject && errors.subject && (
-            <div className="form-error">{errors.subject}</div>
+            <div className="form-error" data-testid="error-msg">
+              {errors.subject}
+            </div>
           )}
           <label className="form-label">Message: </label>
           <textarea
@@ -150,7 +156,9 @@ function Form() {
             onBlur={handleBlur}
           />
           {touched.message && errors.message && (
-            <div className="form-error">{errors.message}</div>
+            <div className="form-error" data-testid="error-msg">
+              {errors.message}
+            </div>
           )}
 
           {btnVisibility && (
@@ -160,7 +168,11 @@ function Form() {
           )}
 
           {/*show success message after form is sent (btn is clicked)*/}
-          {formSent && <p className="form-sent-msg">Form sent successfully!</p>}
+          {formSent && (
+            <p className="form-sent-msg" name="success-msg">
+              Form sent successfully!
+            </p>
+          )}
         </form>
       )}
     </Formik>

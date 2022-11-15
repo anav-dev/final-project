@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { prettyDOM } from "@testing-library/react";
 import { act } from "react-dom/test-utils";
@@ -35,7 +35,8 @@ test("check contact form elements displayed (form not sent)", () => {
   expect(formTitle).toBeInTheDocument();
 });
 
-/* Test 2 - Test elements displayed when Send button is clicked (form sent)  */
+/* Test 2 - Test elements displayed when Send button is clicked, without filling input fields (form not sent)  
+Expected behaviour: Error messages should be displayed and visible to users */
 test("After send btn is clicked, check elements displayed", async () => {
   // 2.1 Test first render component
   render(
@@ -44,9 +45,8 @@ test("After send btn is clicked, check elements displayed", async () => {
     </Router>
   );
 
-  // 2.2 Send form process
+  // 2.2 Send btn clicked
   const sendBtn = screen.getByRole("button", { name: /send/i });
-
   await act(async () => {
     fireEvent.click(sendBtn);
   });
@@ -57,6 +57,8 @@ test("After send btn is clicked, check elements displayed", async () => {
   Whether an element (error msg) is present in the document or not.*/
   const errorMsgName = screen.getByTestId("error-msg-name");
   expect(errorMsgName).toBeInTheDocument();
+
+  expect(errorMsgName).toBeVisible(); // check is currently visible to the user
 
   // 2.4 Check text in the error message
   const errorMsgText = screen.getByTestId("error-msg-name").innerHTML;
