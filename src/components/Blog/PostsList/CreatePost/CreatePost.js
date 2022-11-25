@@ -87,6 +87,7 @@ function CreatePost({ isAuth }) {
           <textarea placeholder="Post text ..." onChange={handleChangeText} />
           {errorText && <h4 className="error-msg"> {errorText}</h4>}
         </div>
+
         <button className="submitPost-btn" onClick={createPost}>
           Submit Post
         </button>

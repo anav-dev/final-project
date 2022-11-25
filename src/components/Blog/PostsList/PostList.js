@@ -5,14 +5,11 @@ import {
   collection,
   deleteDoc,
   doc,
-  updateDoc,
 } from "firebase/firestore";
 import { database } from "../../../firebaseConfig";
 import PostListStyle from "./PostList.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import PostEdit from "./EditPost/PostEdit";
-//import { Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 /* reference sources: 
@@ -20,10 +17,12 @@ https://softauthor.com/firebase-firestore-get-documents-data-in-collection/
 https://softauthor.com/firebase-firestore-update-document-data-updatedoc/
 https://www.npmjs.com/package/react-toastify
 https://www.geeksforgeeks.org/reactjs-toast-notification/
+https://reactnavigation.org/docs/params/
 */
 
 toast.configure();
 function PostList({ isAuth }) {
+  //isAuth = true;
   //console.log("Entering BlogPage");
   const [postList, setPostList] = useState([]);
   const postsCollectionRef = collection(database, "posts");
@@ -94,10 +93,13 @@ function PostList({ isAuth }) {
   // Function to edit a post
   let navigate = useNavigate();
 
-  const handleEdit = async (id) => {
-    console.log("Edit " + id);
+  const handleEdit = async (postId) => {
+    //console.log("Post to edit from post list " + postId);
+
     navigate("editpost", {
-      postId: id,
+      state: {
+        postIdState: postId,
+      },
     });
   };
 

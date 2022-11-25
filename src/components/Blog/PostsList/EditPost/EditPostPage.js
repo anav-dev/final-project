@@ -6,15 +6,26 @@ import {
   getDoc,
   updateDoc,
 } from "firebase/firestore";
-import { database, auth } from "../../../../firebaseConfig";
-import { useNavigate } from "react-router-dom";
+import { database } from "../../../../firebaseConfig";
+import { useNavigate, useLocation } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { NULL } from "sass";
+
+/* source:
+https://stackoverflow.com/questions/71279542/how-to-read-the-data-from-a-sub-collection-from-firestore-database-in-react
+https://stackoverflow.com/questions/70612424/firebase-9-get-single-document-from-nested-collections-react
+*/
 
 toast.configure();
 //se necesita usuario auth y el post id
-function EditPostPage({ isAuth, id }) {
+function EditPostPage({ isAut, idPostGen }) {
+  // If the Id is not passed by parameter, check by location:
+  if (idPostGen === undefined) {
+    const location = useLocation();
+    idPostGen = location.state.postIdState;
+    //console.log("Post Id to edit by location: " + idPostGen);
+  }
+
   const [postId, setPostId] = useState("");
   const [postTitle, setPostTitle] = useState("");
   const [postText, setPostText] = useState("");
@@ -22,7 +33,7 @@ function EditPostPage({ isAuth, id }) {
 
   //Get a specific doc from database by its id
   const getPostById = async (id) => {
-    console.log("Getting post " + id);
+    //console.log("Getting post " + id);
     try {
       var postId = "";
       const postsCollectionRef = collection(database, "posts");
@@ -36,7 +47,7 @@ function EditPostPage({ isAuth, id }) {
       if (postId == "") {
         throw new Error("Not found");
       }
-      console.log("Post id: " + postId);
+      //console.log("Found id: " + postId);
       // Get doc content (title and text)
       const docRefSingle = doc(database, "posts", postId);
       const docsSnapSingle = await getDoc(docRefSingle);
@@ -78,10 +89,10 @@ function EditPostPage({ isAuth, id }) {
   let navigate = useNavigate();
 
   const editPost = async () => {
-    console.log("trying to update post");
+    //console.log("Enter edit post function");
     // If empty title or text, error.
     if (postTitle.trim().length !== 0 && postText.trim().length !== 0) {
-      console.log("Input value: not empty");
+      //console.log("Input value: not empty");
 
       // Update one document using docRef
       const docRef = doc(database, "posts", postId);
@@ -101,15 +112,12 @@ function EditPostPage({ isAuth, id }) {
       notifyToast();
       navigate("/blog");
     } else {
-      console.log("Input value: empty");
+      //console.log("Input value: empty");
     }
   };
 
-  /* useEffect */
   useEffect(() => {
-    console.log("Enter useEffect (id: " + id + ")");
-    id = "2NtsPkH5YxaUjxHLv1zn";
-    getPostById(id);
+    getPostById(idPostGen);
   }, []);
 
   return (
