@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { prettyDOM } from "@testing-library/react";
 import { act } from "react-dom/test-utils";
@@ -10,6 +10,7 @@ import ContactForm from "../components/ContactForm/Form";
 https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques#roles 
 https://testing-library.com/docs/queries/about/#priority
 https://reactjs.org/docs/test-utils.html#act
+https://testing-library.com/docs/example-react-formik/
 */
 
 /* Warning: Warning: An update to Formik inside a test was not wrapped in act(...).
@@ -66,4 +67,27 @@ test("After send btn is clicked, check elements displayed", async () => {
   // 2.4 Check text in the error message
   const errorMsgText = screen.getByTestId("error-msg-name").innerHTML;
   expect(errorMsgText).toBe("Error: Please enter a name");
+});
+
+/* Test 3 - Test elements displayed (form sent) */
+test("After form is sent, check elements displayed", async () => {
+  // 3.1 First render component
+  render(
+    <Router>
+      <ContactForm />
+    </Router>
+  );
+
+  //3.2 Check if element (success msg) is present after setFormSent state is update to true
+
+  const sendBtn = screen.getByRole("button", { name: /send/i });
+
+  await act(async () => {
+    fireEvent.click(sendBtn);
+  });
+
+  //const successText = "Form sent successfully!";
+  //expect(screen.getByTestId("success-msg")).toHaveTextContent(successText);
+  //expect(screen.getByText("Form sent successfully!")).toBeInTheDocument();
+  //expect(setFormSent).toHaveBeenCalled();
 });

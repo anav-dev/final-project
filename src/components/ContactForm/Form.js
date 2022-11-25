@@ -169,7 +169,7 @@ function Form() {
 
           {/*show success message after form is sent (btn is clicked)*/}
           {formSent && (
-            <p className="form-sent-msg" name="success-msg">
+            <p className="form-sent-msg" data-testid="success-msg">
               Form sent successfully!
             </p>
           )}
