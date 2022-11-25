@@ -14,11 +14,12 @@ import "react-toastify/dist/ReactToastify.css";
 /* source:
 https://stackoverflow.com/questions/71279542/how-to-read-the-data-from-a-sub-collection-from-firestore-database-in-react
 https://stackoverflow.com/questions/70612424/firebase-9-get-single-document-from-nested-collections-react
+https://www.educative.io/answers/how-to-use-the-uselocation-hook-in-react
 */
 
 toast.configure();
-//se necesita usuario auth y el post id
-function EditPostPage({ isAut, idPostGen }) {
+//isAuth and post id are needed
+function EditPostPage({ isAuth, idPostGen }) {
   // If the Id is not passed by parameter, check by location:
   if (idPostGen === undefined) {
     const location = useLocation();
@@ -29,7 +30,6 @@ function EditPostPage({ isAut, idPostGen }) {
   const [postId, setPostId] = useState("");
   const [postTitle, setPostTitle] = useState("");
   const [postText, setPostText] = useState("");
-  const [errorNotFound, setErrorNotFound] = useState(false);
 
   //Get a specific doc from database by its id
   const getPostById = async (id) => {
@@ -85,7 +85,6 @@ function EditPostPage({ isAut, idPostGen }) {
   }
 
   /* function to submit date to Firestore in the database */
-  const postsCollectionRef = collection(database, "posts");
   let navigate = useNavigate();
 
   const editPost = async () => {

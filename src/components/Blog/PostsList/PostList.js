@@ -102,6 +102,7 @@ function PostList({ isAuth }) {
       },
     });
   };
+  //https://stackoverflow.com/questions/68911432/how-to-pass-parameters-with-react-router-dom-version-6-usenavigate-and-typescrip
 
   return (
     <div className="blogPage">
