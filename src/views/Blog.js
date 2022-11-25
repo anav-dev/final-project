@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // * nested routes *
 import CreatePost from "../components/Blog/PostsList/CreatePost/CreatePost";
+import EditPost from "../components/Blog/PostsList/EditPost/EditPostPage";
 import Login from "../components/Blog/PostsList/Login/Login";
 import BlogNavBar from "../components/Blog/BlogNavBar/BlogNavBar";
 import PostsList from "../components/Blog/PostsList/PostList";
@@ -41,6 +42,7 @@ function Blog() {
           <Route path="" element={<PostsList isAuth={isAuth} />} />
           <Route path="login" element={<Login setIsAuth={setIsAuth} />} />
           <Route path="createpost" element={<CreatePost isAuth={isAuth} />} />
+          <Route path="editpost" element={<EditPost isAuth={isAuth} />} />
         </Routes>
       </div>
       <div>

@@ -34,11 +34,11 @@
   align-items: flex-end;
 }
 
-.delete-post button {
-  border: none;
-  background: none;
-  font-size: 30px;
+.crud-btn-post {
+  font-size: 20px;
   cursor: pointer;
+  padding: 5px;
+  margin: 5px;
 }
 
 .post .postText-container {
