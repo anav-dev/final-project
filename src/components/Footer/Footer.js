@@ -9,7 +9,11 @@ function Footer() {
     <footer className="footer">
       <div className="footer-container">
         <div className="github-logo">
-          <a href="https://github.com/anaes0/final-project" target="_blank">
+          <a
+            href="https://github.com/anaes0/final-project"
+            target="_blank"
+            rel="noopener noreferrer" //avoid security risk
+          >
             Website Code:
             <FaGithub />
           </a>

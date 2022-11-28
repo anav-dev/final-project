@@ -14,6 +14,7 @@ function FooterBackg() {
               className="socialmedia-insta"
               href="https://www.instagram.com/transient.ie/"
               target="_blank"
+              rel="noopener noreferrer" // avoid security risk
             >
               <FaInstagram />
             </a>
@@ -23,6 +24,7 @@ function FooterBackg() {
               className="socialmedia-tumblr"
               href="https://ietransient.tumblr.com/"
               target="_blank"
+              rel="noopener noreferrer" // avoid security risk
             >
               <FaTumblr />
             </a>

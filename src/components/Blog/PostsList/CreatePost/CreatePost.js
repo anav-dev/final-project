@@ -3,7 +3,7 @@ import CreatePostStyle from "./CreatePost.css";
 import { addDoc, collection } from "firebase/firestore";
 import { database, auth } from "../../../../firebaseConfig";
 import { useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 toast.configure();

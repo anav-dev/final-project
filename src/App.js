@@ -17,13 +17,14 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
   * React icons *
   - npm install react-icons --save
 
+  * Google Maps Api *
+  - npm i -S @react-google-maps/api
+  
   * For running App tests *
   - npm install @testing-library/react
-
-
   
 */
-import Navbar from "./components/Navbar/Navbar";
+
 import Home from "./views/Home";
 import Contact from "./views/Contact";
 import Portfolio from "./views/Portfolio";

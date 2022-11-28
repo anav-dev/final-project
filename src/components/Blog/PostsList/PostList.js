@@ -8,7 +8,7 @@ import {
 } from "firebase/firestore";
 import { database } from "../../../firebaseConfig";
 import PostListStyle from "./PostList.css";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 
@@ -27,8 +27,6 @@ function PostList({ isAuth }) {
   const [postList, setPostList] = useState([]);
   const postsCollectionRef = collection(database, "posts");
   const docRef = doc(database, "posts", "2NtsPkH5YxaUjxHLv1zn");
-  const [isEdit, setIsEdit] = useState(false);
-  const [editBox, setEditBox] = useState(false);
 
   const notifyToast = () => {
     // inbuilt-notification
@@ -69,13 +67,13 @@ function PostList({ isAuth }) {
           id: doc.id,
         }))
       );
-      setIsEdit(false);
     } catch (error) {
       console.log(error);
     }
   };
 
-  // Function to get a document defined by "docRef"
+  /* 
+  //Function to get a document defined by "docRef"
   const getDocument = async () => {
     //console.log("Getting docRec");
     try {
@@ -89,6 +87,7 @@ function PostList({ isAuth }) {
       console.log(error);
     }
   };
+  */
 
   // Function to edit a post
   let navigate = useNavigate();
