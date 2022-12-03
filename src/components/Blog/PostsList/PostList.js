@@ -6,7 +6,7 @@ import {
   deleteDoc,
   doc,
 } from "firebase/firestore";
-import { database } from "../../../firebaseConfig";
+import { database, auth } from "../../../firebaseConfig";
 import PostListStyle from "./PostList.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -27,6 +27,7 @@ function PostList({ isAuth }) {
   const [postList, setPostList] = useState([]);
   const postsCollectionRef = collection(database, "posts");
   const docRef = doc(database, "posts", "2NtsPkH5YxaUjxHLv1zn");
+  const currentUserId = auth.currentUser != null ? auth.currentUser.uid : "";
 
   const notifyToast = () => {
     // inbuilt-notification
@@ -105,6 +106,7 @@ function PostList({ isAuth }) {
 
   return (
     <div className="blogPage">
+      <h4>{isAuth ? <h4>Logged as {auth.currentUser.displayName}</h4> : ""}</h4>
       {postList.map((post, index) => {
         return (
           <li key={index} className="list">
@@ -118,27 +120,31 @@ function PostList({ isAuth }) {
               <h4>@{post.author.name}</h4>
               {isAuth ? (
                 <h4>
-                  <a>User logged</a>
-                  <button
-                    className="crud-btn-post"
-                    onClick={() => {
-                      handleDelete(post.id);
-                    }}
-                  >
-                    {" "}
-                    Delete
-                  </button>
-                  <button
-                    className="crud-btn-post"
-                    onClick={() => {
-                      handleEdit(post.id);
-                    }}
-                  >
-                    Edit
-                  </button>
+                  {currentUserId != "" && currentUserId == post.author.id ? (
+                    <div>
+                      <button
+                        className="crud-btn-post"
+                        onClick={() => {
+                          handleDelete(post.id);
+                        }}
+                      >
+                        Delete
+                      </button>
+                      <button
+                        className="crud-btn-post"
+                        onClick={() => {
+                          handleEdit(post.id);
+                        }}
+                      >
+                        Edit
+                      </button>
+                    </div>
+                  ) : (
+                    ""
+                  )}
                 </h4>
               ) : (
-                <h4> User not logged</h4>
+                ""
               )}
             </div>
           </li>
