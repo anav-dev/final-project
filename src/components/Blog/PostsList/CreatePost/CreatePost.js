@@ -37,6 +37,7 @@ function CreatePost({ isAuth }) {
 
   /* function to submit date to Firestore in the database */
   const postsCollectionRef = collection(database, "posts");
+  //reference which collection we would like to add the doc to
   let navigate = useNavigate();
 
   const createPost = async () => {
@@ -49,6 +50,8 @@ function CreatePost({ isAuth }) {
       setErrorText("");
 
       await addDoc(postsCollectionRef, {
+        // addDoc has 2 parameters: postsCollectionRef, object with data we want to add
+        // when we add a doc, we add it to that specific collection -> postCollectionRef
         title,
         postText,
         author: {
