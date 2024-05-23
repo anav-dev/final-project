@@ -9,11 +9,9 @@ This is the final project of the Computing Science Diploma at NCI. This web enab
 **Click here to see live site**: [The Art of Analog](https://project-3ebfb.web.app/)
 
 
-# Getting Started with Create React App
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
 
 In the project directory, you can run:
 
