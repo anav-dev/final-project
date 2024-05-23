@@ -1,3 +1,14 @@
+# Analog Film
+
+![Analog](https://github.com/anav-dev/final-project/blob/main/src/img/image-analog-hero%402x.jpg)
+
+A web application in which film photography is the central theme to promote analog photography. Contains: a login system, remote data source, a blog system, a NonSQL Database, and unit testing using a React library.
+
+This is the final project of the Computing Science Diploma at NCI. This web enables users to write blog posts as well as to visualize an analog photographer's work. Firebase Authentication (Google as provider), Google Maps API, CRUD operations, FireStore Database, and React Testing Library were used and implemented.
+
+**Click here to see live site**: [Analog Film](https://project-3ebfb.web.app/)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
